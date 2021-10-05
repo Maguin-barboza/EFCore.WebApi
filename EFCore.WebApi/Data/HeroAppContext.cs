@@ -12,7 +12,7 @@ namespace EFCore.WebApi.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=MAGNO-PC\\MSSQL2012ENT;Initial Catalog=HeroApp;User ID=sistema;Password=schwer_wissen;Connect Timeout=0;Application Name=EFCore_WebApi");
+            optionsBuilder.UseSqlServer($"Data Source={ParamDB.DataSource};Initial Catalog={ParamDB.Catalog};User ID={ParamDB.User};Password={ParamDB.Password};Connect Timeout=0;Application Name={ParamDB.ApplicationName}");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

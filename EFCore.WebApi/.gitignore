@@ -338,3 +338,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+
+# Parametros do banco de dados
+./EFCore.WebApi/Data/ParamDB.cs
