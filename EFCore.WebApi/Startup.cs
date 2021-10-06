@@ -1,22 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EFCore.WebApi.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+
+using EFCore.WebApi.Data;
 
 namespace EFCore.WebApi
 {
-    public class Startup
+	public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -30,7 +24,10 @@ namespace EFCore.WebApi
         {
 
             services.AddControllers();
-            //services.AddDbContext<HeroAppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("")));
+            services.AddDbContext<HeroAppContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("Default"))
+            );
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EFCore.WebApi", Version = "v1" });

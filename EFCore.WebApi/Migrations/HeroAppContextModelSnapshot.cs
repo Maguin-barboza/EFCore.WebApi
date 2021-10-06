@@ -70,23 +70,54 @@ namespace EFCore.WebApi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BatalhaId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BatalhaId");
-
                     b.ToTable("Herois");
+                });
+
+            modelBuilder.Entity("EFCore.WebApi.Models.HeroiBatalha", b =>
+                {
+                    b.Property<int>("BatalhaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HeroiId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BatalhaId", "HeroiId");
+
+                    b.HasIndex("HeroiId");
+
+                    b.ToTable("HeroisBatalhas");
+                });
+
+            modelBuilder.Entity("EFCore.WebApi.Models.IdentidadeSecreta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("HeroiId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NomeReal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HeroiId")
+                        .IsUnique();
+
+                    b.ToTable("IdentidadeSecreta");
                 });
 
             modelBuilder.Entity("EFCore.WebApi.Models.Arma", b =>
                 {
                     b.HasOne("EFCore.WebApi.Models.Heroi", "Heroi")
-                        .WithMany()
+                        .WithMany("Armas")
                         .HasForeignKey("HeroiId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -94,15 +125,48 @@ namespace EFCore.WebApi.Migrations
                     b.Navigation("Heroi");
                 });
 
-            modelBuilder.Entity("EFCore.WebApi.Models.Heroi", b =>
+            modelBuilder.Entity("EFCore.WebApi.Models.HeroiBatalha", b =>
                 {
                     b.HasOne("EFCore.WebApi.Models.Batalha", "Batalha")
-                        .WithMany()
+                        .WithMany("HeroisBatalhas")
                         .HasForeignKey("BatalhaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("EFCore.WebApi.Models.Heroi", "Heroi")
+                        .WithMany("HeroisBatalhas")
+                        .HasForeignKey("HeroiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Batalha");
+
+                    b.Navigation("Heroi");
+                });
+
+            modelBuilder.Entity("EFCore.WebApi.Models.IdentidadeSecreta", b =>
+                {
+                    b.HasOne("EFCore.WebApi.Models.Heroi", "Heroi")
+                        .WithOne("Identidade")
+                        .HasForeignKey("EFCore.WebApi.Models.IdentidadeSecreta", "HeroiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Heroi");
+                });
+
+            modelBuilder.Entity("EFCore.WebApi.Models.Batalha", b =>
+                {
+                    b.Navigation("HeroisBatalhas");
+                });
+
+            modelBuilder.Entity("EFCore.WebApi.Models.Heroi", b =>
+                {
+                    b.Navigation("Armas");
+
+                    b.Navigation("HeroisBatalhas");
+
+                    b.Navigation("Identidade");
                 });
 #pragma warning restore 612, 618
         }
