@@ -1,0 +1,11 @@
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\bin\Debug\net5.0\EfCore.Domain.deps.json
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\bin\Debug\net5.0\EfCore.Domain.dll
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\bin\Debug\net5.0\ref\EfCore.Domain.dll
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\bin\Debug\net5.0\EfCore.Domain.pdb
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0\EfCore.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0\EfCore.Domain.AssemblyInfoInputs.cache
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0\EfCore.Domain.AssemblyInfo.cs
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0\EfCore.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0\EfCore.Domain.dll
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0\ref\EfCore.Domain.dll
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0\EfCore.Domain.pdb

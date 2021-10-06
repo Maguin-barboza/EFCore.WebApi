@@ -1,7 +1,6 @@
 using System.Linq;
-
-using EFCore.WebApi.Data;
-using EFCore.WebApi.Models;
+using EFCore.Domain;
+using EFCore.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EFCore.WebApi.Controllers

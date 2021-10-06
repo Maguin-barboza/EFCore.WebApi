@@ -1,0 +1,17 @@
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\obj\Debug\net5.0\EfCore.Repository.csproj.AssemblyReference.cache
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\obj\Debug\net5.0\EfCore.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\obj\Debug\net5.0\EfCore.Repository.AssemblyInfoInputs.cache
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\obj\Debug\net5.0\EfCore.Repository.AssemblyInfo.cs
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\obj\Debug\net5.0\EfCore.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\bin\Debug\net5.0\EfCore.Repository.deps.json
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\bin\Debug\net5.0\EfCore.Repository.runtimeconfig.json
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\bin\Debug\net5.0\EfCore.Repository.runtimeconfig.dev.json
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\bin\Debug\net5.0\EfCore.Repository.dll
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\bin\Debug\net5.0\ref\EfCore.Repository.dll
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\bin\Debug\net5.0\EfCore.Repository.pdb
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\bin\Debug\net5.0\EfCore.Domain.dll
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\bin\Debug\net5.0\EfCore.Domain.pdb
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\obj\Debug\net5.0\EfCore.Repository.dll
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\obj\Debug\net5.0\ref\EfCore.Repository.dll
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\obj\Debug\net5.0\EfCore.Repository.pdb
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Repository\obj\Debug\net5.0\EfCore.Repository.genruntimeconfig.cache

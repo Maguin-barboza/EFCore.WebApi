@@ -1593,6 +1593,32 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "EfCore.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/EfCore.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EfCore.Domain.dll": {}
+        }
+      },
+      "EfCore.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "EfCore.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.10",
+          "Microsoft.EntityFrameworkCore.Design": "5.0.10",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10"
+        },
+        "compile": {
+          "bin/placeholder/EfCore.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EfCore.Repository.dll": {}
+        }
       }
     }
   },
@@ -5922,10 +5948,22 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "EfCore.Domain/1.0.0": {
+      "type": "project",
+      "path": "../EfCore.Domain/EfCore.Domain.csproj",
+      "msbuildProject": "../EfCore.Domain/EfCore.Domain.csproj"
+    },
+    "EfCore.Repository/1.0.0": {
+      "type": "project",
+      "path": "../EfCore.Repository/EfCore.Repository.csproj",
+      "msbuildProject": "../EfCore.Repository/EfCore.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "EfCore.Domain >= 1.0.0",
+      "EfCore.Repository >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.10",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.10",
@@ -5940,11 +5978,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Administrador\\source\\repos\\EFCore.WebApi\\EFCore.WebApi\\EFCore.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\EFCore.WebApi\\EFCore.WebApi\\EFCore.WebApi.csproj",
       "projectName": "EFCore.WebApi",
-      "projectPath": "c:\\Users\\Administrador\\source\\repos\\EFCore.WebApi\\EFCore.WebApi\\EFCore.WebApi.csproj",
+      "projectPath": "C:\\Users\\Administrador\\source\\repos\\EFCore.WebApi\\EFCore.WebApi\\EFCore.WebApi.csproj",
       "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Administrador\\source\\repos\\EFCore.WebApi\\EFCore.WebApi\\obj\\",
+      "outputPath": "C:\\Users\\Administrador\\source\\repos\\EFCore.WebApi\\EFCore.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5963,7 +6001,14 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Administrador\\source\\repos\\EFCore.WebApi\\EfCore.Domain\\EfCore.Domain.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\EFCore.WebApi\\EfCore.Domain\\EfCore.Domain.csproj"
+            },
+            "C:\\Users\\Administrador\\source\\repos\\EFCore.WebApi\\EfCore.Repository\\EfCore.Repository.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\EFCore.WebApi\\EfCore.Repository\\EfCore.Repository.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -6015,7 +6060,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

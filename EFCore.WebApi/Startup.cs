@@ -5,8 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-
-using EFCore.WebApi.Data;
+using EFCore.Repository;
 
 namespace EFCore.WebApi
 {
