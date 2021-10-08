@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EFCore.Domain;
-using EFCore.Repository;
+using EfCore.Repository;
 
 namespace EFCore.WebApi.Controllers
 {

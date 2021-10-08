@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using EFCore.Repository;
+using EfCore.Repository;
 
 namespace EFCore.WebApi
 {
@@ -27,6 +27,7 @@ namespace EFCore.WebApi
                 options.UseSqlServer(Configuration.GetConnectionString("Default"))
             );
 
+            services.AddScoped<IEFCoreRepository, EFCoreRepository>();
             services.AddControllers()
                     .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling =
                                         Newtonsoft.Json.ReferenceLoopHandling.Ignore);

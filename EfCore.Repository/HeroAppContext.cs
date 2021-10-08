@@ -1,7 +1,7 @@
 using EFCore.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace EFCore.Repository
+namespace EfCore.Repository
 {
 	public class HeroAppContext: DbContext
     {

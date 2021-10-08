@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
 
-using EFCore.Repository;
+using EfCore.Repository;
 using EFCore.Domain;
 using Microsoft.EntityFrameworkCore;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,37 +16,36 @@ namespace EFCore.WebApi.Controllers
     [ApiController]
     public class BatalhaController : ControllerBase
     {
-        private readonly HeroAppContext _context;
+        private readonly IEFCoreRepository _repository;
 
-        public BatalhaController(HeroAppContext context)
+        public BatalhaController(IEFCoreRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         // GET: api/<BatalhaController>
         [HttpGet]
-        public ActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok(_context.Batalhas.ToList());
+            return Ok(await _repository.GetBatalhas());
         }
 
         // GET api/<BatalhaController>/5
         [HttpGet("{id}")]
-        public ActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            var Batalha = _context.Batalhas.FirstOrDefault(b => b.Id == id);
-
-            return Ok(Batalha);
+            return Ok(_repository.GetBatalhaById(id));
         }
 
         // POST api/<BatalhaController>
         [HttpPost]
-        public ActionResult Post(Batalha batalha)
+        public async Task<IActionResult> Post(Batalha batalha)
         {
             try
             {
-                _context.Add(batalha);
-                _context.SaveChanges();
+                _repository.Add(batalha);
+                if (!(await _repository.SaveChangesAsync()))
+                    return BadRequest("Não foi possível incluir.");
 
                 return Ok(batalha);
             }
@@ -58,17 +57,19 @@ namespace EFCore.WebApi.Controllers
 
         // PUT api/<BatalhaController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, Batalha batalha)
+        public async Task<IActionResult> Put(int id, Batalha batalha)
         {
             try
             {
-                var batalhaAux = _context.Batalhas.AsNoTracking().FirstOrDefault(b => b.Id == id);
+                var batalhaAux = await _repository.GetBatalhaById(id);
 
                 if (batalhaAux is null)
-                    return BadRequest("Registro não encontrado.");
+                    return BadRequest("Não foi possível concluir a alteração.");
 
-                _context.Update(batalha);
-                _context.SaveChanges();
+                _repository.Update(batalha);
+                
+                if (!(await _repository.SaveChangesAsync()))
+                    return BadRequest("Não foi possível incluir.");
 
                 return Ok(batalha);
             }
@@ -80,17 +81,17 @@ namespace EFCore.WebApi.Controllers
 
         // DELETE api/<BatalhaController>/5
         [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                var batalhaAux = _context.Batalhas.FirstOrDefault(b => b.Id == id);
+                var batalhaAux = await _repository.GetBatalhaById(id);
 
                 if (batalhaAux is null)
                     return BadRequest("Registro não encontrado");
 
-                _context.Remove(batalhaAux);
-                _context.SaveChanges();
+                _repository.Remove(batalhaAux);
+                await _repository.SaveChangesAsync();
 
                 return Ok(batalhaAux);
             }
