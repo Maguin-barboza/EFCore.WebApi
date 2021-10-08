@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfCore.Repository.Migrations
 {
     [DbContext(typeof(HeroAppContext))]
-    [Migration("20211006200144_Init")]
-    partial class Init
+    [Migration("20211008134459_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -9,3 +9,4 @@ C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0
 C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0\EfCore.Domain.dll
 C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0\ref\EfCore.Domain.dll
 C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0\EfCore.Domain.pdb
+C:\Users\Administrador\source\repos\EFCore.WebApi\EfCore.Domain\obj\Debug\net5.0\EfCore.Domain.csproj.AssemblyReference.cache

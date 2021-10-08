@@ -26,7 +26,11 @@ namespace EFCore.WebApi
             services.AddDbContext<HeroAppContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("Default"))
             );
-            
+
+            services.AddControllers()
+                    .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling =
+                                        Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EFCore.WebApi", Version = "v1" });

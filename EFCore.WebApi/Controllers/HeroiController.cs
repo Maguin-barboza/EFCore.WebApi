@@ -23,17 +23,12 @@ namespace EFCore.WebApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post()
+        public ActionResult Post(Heroi heroi)
         {
-            _context.AddRange(new Heroi() {Nome = "Batman"},
-                              new Heroi() {Nome = "Robin"},
-                              new Heroi() {Nome = "Arqueiro Verde"},
-                              new Heroi() {Nome = "Black Cat"}
-                              );
-            
+            _context.Add(heroi);
             _context.SaveChanges();
 
-            return Ok("Todos Gravados com sucesso!");
+            return Ok(heroi);
         }
 
         [HttpPut("{Id}")]
