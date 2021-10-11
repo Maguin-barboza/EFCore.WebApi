@@ -1,10 +1,12 @@
-﻿using EFCore.Domain;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
+
+using EFCore.Domain;
 
 namespace EfCore.Repository
 {
@@ -75,6 +77,13 @@ namespace EfCore.Repository
                                                      .ThenInclude(hb => hb.Heroi)
                                                      .FirstOrDefaultAsync();
             return batalha;
+        }
+
+        public async Task<Arma> GetArma(int Id)
+        {
+            Arma arma = await _context.Armas.FirstOrDefaultAsync(a => a.Id == Id);
+
+            return arma;
         }
     }
 }

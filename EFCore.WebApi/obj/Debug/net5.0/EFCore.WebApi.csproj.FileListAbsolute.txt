@@ -139,4 +139,3 @@ C:\Users\Administrador\source\repos\EFCore.WebApi\EFCore.WebApi\bin\Debug\net5.0
 C:\Users\Administrador\source\repos\EFCore.WebApi\EFCore.WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Administrador\source\repos\EFCore.WebApi\EFCore.WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Administrador\source\repos\EFCore.WebApi\EFCore.WebApi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
-C:\Users\Administrador\source\repos\EFCore.WebApi\EFCore.WebApi\obj\Debug\net5.0\EFCore.WebApi.csproj.CopyComplete

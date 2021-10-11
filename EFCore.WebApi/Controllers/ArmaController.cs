@@ -14,25 +14,18 @@ namespace EFCore.WebApi.Controllers
     [ApiController]
     public class ArmaController : ControllerBase
     {
-        private readonly HeroAppContext _context;
+        private readonly IEFCoreRepository _repo;
 
-        public ArmaController(HeroAppContext context)
+        public ArmaController(IEFCoreRepository repo)
         {
-            _context = context;
-        }
-
-        // GET: api/Arma
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Arma>>> GetArmas()
-        {
-            return await _context.Armas.ToListAsync();
+            _repo = repo;
         }
 
         // GET: api/Arma/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Arma>> GetArma(int id)
+        public async Task<ActionResult<Arma>> Get(int id)
         {
-            var arma = await _context.Armas.FindAsync(id);
+            var arma = await _repo.GetArma(id);
 
             if (arma == null)
             {
@@ -42,67 +35,63 @@ namespace EFCore.WebApi.Controllers
             return arma;
         }
 
-        // PUT: api/Arma/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutArma(int id, Arma arma)
-        {
-            if (id != arma.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(arma).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ArmaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
         // POST: api/Arma
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Arma>> PostArma(Arma arma)
+        public async Task<ActionResult<Arma>> Post(Arma arma)
         {
-            _context.Armas.Add(arma);
-            await _context.SaveChangesAsync();
+            _repo.Add(arma);
 
-            return CreatedAtAction("GetArma", new { id = arma.Id }, arma);
+            if (!(await _repo.SaveChangesAsync()))
+                return BadRequest("Não foi possível fazer a inclusão do registro.");
+
+            return Ok(arma);
+        }
+
+        // PUT: api/Arma/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, Arma arma)
+        {
+            try
+            {
+                var armaAux = await _repo.GetArma(id);
+
+                if (armaAux is null)
+                    BadRequest("Registro não encontrado.");
+
+                _repo.Update(arma);
+
+                if (!(await _repo.SaveChangesAsync()))
+                    return BadRequest("Não foi possível modificar Registro.");
+
+                return Ok(arma);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return NoContent();
         }
 
         // DELETE: api/Arma/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteArma(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var arma = await _context.Armas.FindAsync(id);
-            if (ArmaExists(id))
-            {
-                return NotFound();
-            }
+            var arma = await _repo.GetArma(id);
 
-            _context.Armas.Remove(arma);
-            await _context.SaveChangesAsync();
+            var armaAux = await _repo.GetArma(id);
 
-            return NoContent();
-        }
+            if (armaAux is null)
+                NotFound("Registro não encontrado.");
 
-        private bool ArmaExists(int id)
-        {
-            return _context.Armas.Any(e => e.Id == id);
+            _repo.Remove(arma);
+
+            if (!(await _repo.SaveChangesAsync()))
+                return BadRequest("Não foi possível modificar Registro.");
+
+            return Ok("Registro deletado com sucesso.");
         }
     }
 }

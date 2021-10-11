@@ -19,5 +19,7 @@ namespace EfCore.Repository
 
         Task<List<Batalha>> GetBatalhas();
         Task<Batalha> GetBatalhaById(int Id);
+
+        Task<Arma> GetArma(int Id);
     }
 }
